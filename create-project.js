@@ -101,12 +101,16 @@ async function getUsers() {
 }
 
 const createProjectAndIssue = async () => {
-  // const issueType = 'Task';
-  // const summary = 'Horea Porutiu is awesome';
-  // const description = 'super awesome!'
+
   // const projectName = process.env.PROJECT_NAME
   // const projectKey = await createProject(projectName);
   // console.log(`Created project with key: ${projectKey}`);
+
+  const issueType = 'Task';
+  const summary = 'Horea Porutiu is awesome';
+  const description = 'super awesome!'
+
+
   // const issueKey = await createIssue(projectKey, issueType, summary, description);
   // console.log(`Created issue with key: ${issueKey}`);
   // const users = await getUsers();
