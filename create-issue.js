@@ -1,6 +1,6 @@
 var axios = require('axios');
-var dotenv = require('dotenv')
-dotenv.config()
+require('dotenv').config();
+
 const username = process.env.ATLASSIAN_USERNAME
 const password = process.env.ATLASSIAN_API_KEY
 const domain = process.env.DOMAIN
@@ -37,7 +37,8 @@ async function createIssue(projectKey, issueType, summary, description) {
     console.log(error.response.data.errors)
   }
 }
-const createIssueCaller = async () => {
+
+const main = async () => {
 
   const issueType = 'Task';
   const summary = 'Horea Porutiu is awesome';
@@ -48,4 +49,6 @@ const createIssueCaller = async () => {
   console.log(`Created issue with key: ${issueKey}`);
 }
 
-createIssueCaller();
+main();
+
+module.exports = createIssue;

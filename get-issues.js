@@ -1,6 +1,6 @@
 var axios = require('axios');
-var dotenv = require('dotenv')
-dotenv.config()
+require('dotenv').config();
+
 const username = process.env.ATLASSIAN_USERNAME
 const password = process.env.ATLASSIAN_API_KEY
 const domain = process.env.DOMAIN
@@ -33,9 +33,4 @@ async function getIssues() {
   }
 }
 
-const main = async () => {
-  const users = await getIssues();
-}
-
-main();
-
+module.exports = getIssues;

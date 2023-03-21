@@ -1,6 +1,6 @@
 var axios = require('axios');
-var dotenv = require('dotenv')
-dotenv.config()
+require('dotenv').config();
+
 const username = process.env.ATLASSIAN_USERNAME
 const password = process.env.ATLASSIAN_API_KEY
 const domain = process.env.DOMAIN
@@ -16,7 +16,6 @@ async function updateStatus(issueKey, statusID) {
   try {
 
     const baseUrl = 'https://' + domain + '.atlassian.net';
-
 
     const config = {
       headers: { 'Content-Type': 'application/json' },
@@ -43,17 +42,4 @@ async function updateStatus(issueKey, statusID) {
   }
 }
 
-const main = async () => {
-  //add issueKey you want to update. This should be the Key of the project and then a number,
-  // i.e. TEST-1, or INC-1755 as shown below
-  const issueKey = 'INC-1755'
-  //statusID corresponds to " 11 == "To Do", 21=="In Progress", 31=="In Review", 41=="Done"
-  //for more info on statusID use the `get-transtions.js` file to see all available transitions
-  // since we are hard coding `31` below this means we will update the issue to In Review
-  const statusID = '31'
-  const update = await updateStatus(issueKey, statusID);
-  console.log(update)
-}
-
-main();
-
+module.exports = updateStatus;

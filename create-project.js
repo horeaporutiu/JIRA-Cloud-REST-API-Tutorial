@@ -1,6 +1,6 @@
 var axios = require('axios');
-var dotenv = require('dotenv')
-dotenv.config()
+require('dotenv').config();
+
 const username = process.env.ATLASSIAN_USERNAME
 const password = process.env.ATLASSIAN_API_KEY
 const domain = process.env.DOMAIN
@@ -49,12 +49,4 @@ async function createProject(projectName) {
 
 }
 
-const createProjectCaller = async () => {
-
-  const projectName = process.env.PROJECT_NAME
-  const projectKey = await createProject(projectName);
-  console.log(`Created project with key: ${projectKey}`);
-
-}
-
-createProjectCaller();
+module.exports = createProject;

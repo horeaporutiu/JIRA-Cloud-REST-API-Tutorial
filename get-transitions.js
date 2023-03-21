@@ -1,6 +1,6 @@
 var axios = require('axios');
-var dotenv = require('dotenv')
-dotenv.config()
+require('dotenv').config();
+
 const username = process.env.ATLASSIAN_USERNAME
 const password = process.env.ATLASSIAN_API_KEY
 const domain = process.env.DOMAIN
@@ -34,13 +34,4 @@ async function getTransitions(issueKey) {
   }
 }
 
-const main = async () => {
-  //add issueKey you want to look for here. This should be the Key of the project and then a number,
-  // i.e. TEST-1, or INC-1755 as shown below
-  const issueKey = 'INC-1755'
-  const transitions = await getTransitions(issueKey);
-  console.log(transitions)
-}
-
-main();
-
+module.exports = getTransitions;

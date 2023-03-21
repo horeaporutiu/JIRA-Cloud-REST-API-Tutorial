@@ -1,6 +1,6 @@
 var axios = require('axios');
-var dotenv = require('dotenv')
-dotenv.config()
+require('dotenv').config();
+
 const username = process.env.ATLASSIAN_USERNAME
 const password = process.env.ATLASSIAN_API_KEY
 const domain = process.env.DOMAIN
@@ -16,7 +16,6 @@ async function getIssueByID(issueKey) {
   try {
 
     const baseUrl = 'https://' + domain + '.atlassian.net';
-
 
     const config = {
       method: 'get',
@@ -34,13 +33,4 @@ async function getIssueByID(issueKey) {
   }
 }
 
-const main = async () => {
-  //add issueKey you want to look for here. This should be the Key of the project and then a number,
-  // i.e. TEST-1, or INC-1755 as shown below
-  const issueKey = 'INC-1755'
-  const issue = await getIssueByID(issueKey);
-  console.log(issue)
-}
-
-main();
-
+module.exports = getIssueByID;
