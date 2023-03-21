@@ -5,6 +5,7 @@ const getIssues = require('./get-issues.js');
 const getTransitions = require('./get-transitions.js');
 const getUsers = require('./get-users.js');
 const updateStatus = require('./update-status.js');
+const getProjects = require('./get-projects.js')
 
 // Common call pattern 1: create project, create issue in that project, and move that 
 // issue into in progress. This function will do exactly as described in the previous sentence 
@@ -36,4 +37,21 @@ const createProjectIssueAndUpdate = async () => {
   console.log(update)
 }
 
-createProjectIssueAndUpdate();
+//This will output the most recent projects
+const getRecentProjects = async () => {
+  const recentProjects = await getProjects();
+  console.log(recentProjects)
+}
+
+//This will list all issues for a project
+const getIssuesFunc = async () => {
+  const issues = await getIssues();
+  console.log(issues)
+}
+
+// createProjectIssueAndUpdate();
+
+//get recent projects
+// getRecentProjects();
+
+getIssuesFunc();
