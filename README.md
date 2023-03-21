@@ -37,7 +37,8 @@ Rename your `.sample.env` to `.env` and fill out the necessary env variables! Se
 * First, run the `get-users.js` file to see your account id. The resulting JSON should give you your ID. 
 This is needed to assign the project to a user.
 > DOMAIN=horeaporutiu
-* This will be the https://<your-domain>.atlassian.net
+* This will be the `https://<your-domain>.atlassian.net` your-domain part of the URL. For example my URL is 
+`https://horeaporutiu.atlassian.net/` so my domain is `horeaporutiu`
 > PROJECT_KEY=TEST22
 * This can be anything
 > PROJECT_NAME=TestProject22
