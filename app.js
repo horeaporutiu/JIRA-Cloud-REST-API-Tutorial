@@ -90,6 +90,3 @@ getUsersFunc();
 // Optional -- uncomment the function call below to get transitions of a newly created project
 // Get transitions - needed to see how to update the status of an issue
 // getTransitionsFunc()
-
-
-
