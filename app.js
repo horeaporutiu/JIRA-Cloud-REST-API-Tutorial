@@ -1,6 +1,7 @@
 const createIssue = require('./create-issue.js');
 const createProject = require('./create-project.js');
 const getIssueByID = require('./get-issue-by-id.js');
+const deleteIssueByID = require('./delete-issue-by-id.js');
 const getIssues = require('./get-issues.js');
 const getTransitions = require('./get-transitions.js');
 const getUsers = require('./get-users.js');
@@ -13,18 +14,18 @@ const getProjects = require('./get-projects.js')
 // in the individual function files which are named as obviously as possible :) 
 const createProjectIssueAndUpdate = async () => {
 
-  const projectName = process.env.PROJECT_NAME
-  const projectKey = await createProject(projectName);
-  console.log(`Created project with key: ${projectKey}`);
+  // const projectName = process.env.PROJECT_NAME
+  // const projectKey = await createProject(projectName);
+  // console.log(`Created project with key: ${projectKey}`);
 
-  // When creating an issue, we need the following parameters, issueType, summary, and description. 
-  // Read more about this on the JIRA Cloud REST API docs: https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issues/#api-rest-api-3-issue-post
+  // // // When creating an issue, we need the following parameters, issueType, summary, and description. 
+  // // // Read more about this on the JIRA Cloud REST API docs: https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issues/#api-rest-api-3-issue-post
   const issueType = 'Task';
-  const summary = 'Need to use figma to create a mock up';
-  const description = 'Need at least two pages of mock up!'
+  const summary = 'Subscribe to Horeas YouTube Channel!';
+  const description = 'Do so now!!'
 
   // Note that we are using the project key which will be auto created in the above function call
-  const issueKey = await createIssue(projectKey, issueType, summary, description);
+  const issueKey = await createIssue('FIGMA2', issueType, summary, description);
   console.log(`Created issue with key: ${issueKey}`);
 
   // Notes about statusID: statusID corresponds to " 11 == "To Do", 21=="In Progress", 31=="In Review", 41=="Done"
@@ -61,6 +62,11 @@ const getIssueByIDFunc = async (issueKey) => {
   console.log(issue)
 }
 
+const deleteIssueByIDFunc = async (issueKey) => {
+  const issue = await deleteIssueByID(issueKey);
+  console.log(issue)
+}
+
 const updateStatusFunc = async (issueKey, statusID) => {
   const status = await updateStatus(issueKey, statusID);
   console.log(status)
@@ -74,7 +80,7 @@ const getUsersFunc = async () => {
 
 // Step 1, get user account ID to be able to assign a new project to a user
 // Get users - needed to get the leadAccountID to be able to create a project!
-// getUsersFunc();
+getUsersFunc();
 
 // Step 2, add the accountID to the env file, save the file and run source .env and then 
 // uncomment the function call below to create a project, create an issue in that project,
@@ -88,11 +94,18 @@ const getUsersFunc = async () => {
 // Get recent projects
 // getRecentProjects();
 
+// Step 4, uncomment the function call below to get issues to see the newly created project
+// Get recent projects
+// getRecentProjects();
+
 // Optional -- uncomment the function call below to get an issue by ID
-// getIssueByIDFunc('FIGMA-1')
+// getIssueByIDFunc('FIGMA2-3')
 
 // Optional -- uncomment the function call below to get transitions of a newly created project
 // Get transitions - needed to see how to update the status of an issue
-// getTransitionsFunc('FIGMA-1')
+// getTransitionsFunc('FIGMA2-3')
 
-updateStatusFunc('12276', '61')
+// updateStatusFunc('12281', '31')
+
+// Optional -- uncomment the function call below to delete an issue by ID
+// deleteIssueByIDFunc('FIGMA2-4');
