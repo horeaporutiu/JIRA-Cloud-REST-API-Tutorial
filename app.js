@@ -20,8 +20,8 @@ const createProjectIssueAndUpdate = async () => {
   // When creating an issue, we need the following parameters, issueType, summary, and description. 
   // Read more about this on the JIRA Cloud REST API docs: https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issues/#api-rest-api-3-issue-post
   const issueType = 'Task';
-  const summary = 'Horea Porutiu is awesome';
-  const description = 'super awesome!'
+  const summary = 'Need to use figma to create a mock up';
+  const description = 'Need at least two pages of mock up!'
 
   // Note that we are using the project key which will be auto created in the above function call
   const issueKey = await createIssue(projectKey, issueType, summary, description);
@@ -51,8 +51,7 @@ const getIssuesFunc = async () => {
 
 // This will list all transitions for a project, make sure to change the issueKey to correspond
 // with your project! 
-const getTransitionsFunc = async () => {
-  const issueKey = 'INC-1755'
+const getTransitionsFunc = async (issueKey) => {
   const transitions = await getTransitions(issueKey);
   console.log(transitions)
 }
@@ -60,6 +59,11 @@ const getTransitionsFunc = async () => {
 const getIssueByIDFunc = async (issueKey) => {
   const issue = await getIssueByID(issueKey);
   console.log(issue)
+}
+
+const updateStatusFunc = async (issueKey, statusID) => {
+  const status = await updateStatus(issueKey, statusID);
+  console.log(status)
 }
 
 // This will list all users
@@ -70,7 +74,7 @@ const getUsersFunc = async () => {
 
 // Step 1, get user account ID to be able to assign a new project to a user
 // Get users - needed to get the leadAccountID to be able to create a project!
-getUsersFunc();
+// getUsersFunc();
 
 // Step 2, add the accountID to the env file, save the file and run source .env and then 
 // uncomment the function call below to create a project, create an issue in that project,
@@ -85,8 +89,10 @@ getUsersFunc();
 // getRecentProjects();
 
 // Optional -- uncomment the function call below to get an issue by ID
-// getIssueByIDFunc('INC-1755')
+// getIssueByIDFunc('FIGMA-1')
 
 // Optional -- uncomment the function call below to get transitions of a newly created project
 // Get transitions - needed to see how to update the status of an issue
-// getTransitionsFunc()
+// getTransitionsFunc('FIGMA-1')
+
+updateStatusFunc('12276', '61')
