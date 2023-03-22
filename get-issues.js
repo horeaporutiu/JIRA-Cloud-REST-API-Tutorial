@@ -17,7 +17,6 @@ async function getIssues() {
 
     const baseUrl = 'https://' + domain + '.atlassian.net';
 
-
     const config = {
       method: 'get',
       url: baseUrl + '/rest/api/2/search',

@@ -23,7 +23,6 @@ async function getIssueByID(issueKey) {
       headers: { 'Content-Type': 'application/json' },
       auth: auth
     };
-    console.log(config)
     const response = await axios.request(config);
     console.log(response.data)
     return response.data;

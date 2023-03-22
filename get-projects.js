@@ -17,7 +17,6 @@ async function getProjects() {
 
     const baseUrl = 'https://' + domain + '.atlassian.net';
 
-
     const config = {
       method: 'get',
       url: baseUrl + '/rest/api/3/project/recent',

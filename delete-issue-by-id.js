@@ -10,16 +10,16 @@ const auth = {
   password: password
 };
 
-//List the transitions of a given issue using the Jira Cloud REST API
-async function getTransitions(issueKey) {
+//Gets all issues in a particular project using the Jira Cloud REST API
+async function deleteIssueByID(issueKey) {
 
   try {
 
     const baseUrl = 'https://' + domain + '.atlassian.net';
 
     const config = {
-      method: 'get',
-      url: baseUrl + '/rest/api/2/issue/' + issueKey + '/transitions',
+      method: 'delete',
+      url: baseUrl + '/rest/api/2/issue/' + issueKey,
       headers: { 'Content-Type': 'application/json' },
       auth: auth
     };
@@ -32,4 +32,4 @@ async function getTransitions(issueKey) {
   }
 }
 
-module.exports = getTransitions;
+module.exports = deleteIssueByID;
