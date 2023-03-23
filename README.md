@@ -3,6 +3,10 @@
 This is the best tutorial out there. It will teach you basics of how to use JIRA Cloud REST APIs. 
 You will need a free Atlassian account to make REST API calls to JIRA Cloud. 
 
+# Video
+
+[![](https://user-images.githubusercontent.com/10428517/227070350-22134bbb-d288-4800-a5ac-996258db223e.png)](https://www.youtube.com/watch?v=yRglBW7YnjA)
+
 # Steps
 1. [Clone the Repo](#step-1-clone-the-repo)
 2. [Install dependencies](#step-2-create-ibm-cloud-services)
